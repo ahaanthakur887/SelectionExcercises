@@ -10,6 +10,7 @@
             Console.WriteLine(Angles(137));
             Console.WriteLine(RockPaperScissors("Rock"));
             Console.WriteLine(Triangle(30, 30, 120));
+            Console.WriteLine(ConcertSales());
             Console.ReadLine();
         }
 
@@ -155,15 +156,29 @@
         static string ConcertSales()
         {
             Console.WriteLine("Enter the price of a ticket");
+            string TicketPriceInput = Console.ReadLine();
             double TicketPrice;
-            if (double.TryParse(Console.ReadLine(), out TicketPrice) == false)
+            if (double.TryParse(TicketPriceInput, out TicketPrice) == false)
             {
                 return "Invalid Input";
             }
             else
             {
-                TicketPrice = Convert.ToDouble(Console.ReadLine());
+                TicketPrice = Convert.ToDouble(TicketPriceInput);
             }
+            Console.WriteLine("Enter how many tickets were purchased");
+            string TicketNumberInput = Console.ReadLine();
+            double TicketNumber;
+            if (double.TryParse(TicketNumberInput, out TicketNumber) == false)
+            {
+                return "Invalid Input";
+            }
+            else
+            {
+                TicketNumber = Convert.ToDouble(TicketNumberInput);
+            }
+            double output = Math.Round(TicketPrice * TicketNumber, 2);
+            return $"The amount of money made was {output}.";
         }
     }
 }
